@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageFrame from "@/components/PageFrame";
+import IntroOverlay from "@/components/IntroOverlay";
 import BlueprintReveal from "@/components/BlueprintReveal";
 import ParallaxImage from "@/components/ParallaxImage";
 import HybridHero from "@/components/HybridHero";
@@ -14,6 +15,7 @@ export const metadata = pageMetadata("/");
 export default function Home() {
   return (
     <PageFrame>
+      <IntroOverlay />
       <JsonLd data={websiteSchema} />
       <main>
         

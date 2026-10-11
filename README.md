@@ -119,6 +119,24 @@ for Sites hosting. That output does not contain the Next.js route manifest
 Vercel requires. Use `npm run build:vercel` to verify a Vercel build locally,
 then redeploy the latest Git commit in Vercel.
 
+Use `npm run dev:vercel` for Next.js development, or `npm run start:vercel`
+to preview a completed Next.js production build.
+
+## Search metadata
+
+The production domain is configured in `lib/site-config.ts`. Page titles,
+descriptions and indexing decisions are in `lib/seo.ts`; project metadata
+uses the same verified project information as the visible project pages.
+The sitemap contains indexable pages only. The Team page stays `noindex`
+until actual profiles replace its placeholders; enable it in `seoPages`
+when that content is ready.
+
+Run `npm run build:vercel` followed by `npm run check:seo` to validate the
+actual generated HTML, canonical links, breadcrumbs, business data, sitemap
+and social sharing image. Update the checks when the production domain or
+page routing or indexing decisions change. Use genuine business and project details when adding
+an office address, official social profiles or RERA identifiers.
+
 ## Diagnostic Commands
 
 - `npm run install:ci`: perform the one locked dependency install

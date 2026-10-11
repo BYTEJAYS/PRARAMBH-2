@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import SiteImage from './SiteImage';
 
 const oldProjects = [
   { id: 0, title: 'PRARAMBH 51', copy: 'Aura of peaceful living\n3 BHK LAVISH DUPLEX', img: '/old-assets/build1.jpg', alt: 'PRARAMBH landscaped entrance', slug: 'prarambh-51', logo: '/old-assets/logo1.png' },
@@ -12,7 +13,6 @@ const oldProjects = [
 export default function HybridHero() {
   const [open, setOpen] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
 
   useEffect(() => {
     let scrollPending = false;
@@ -38,13 +38,13 @@ export default function HybridHero() {
         {/* The Old Selection Cards */}
         <section className="selection" id="work" aria-label="Our selection" inert={!open ? true : undefined}>
           {oldProjects.map((p) => (
-            <button 
+            <Link
               key={p.id} 
               className="panel" 
               data-project={p.id}
-              onClick={() => { if (p.slug) router.push(`/projects/${p.slug}`); }}
+              href={`/projects/${p.slug}`}
             >
-              <img src={p.logo} alt="Project Logo" className="panel-center-logo" />
+              <SiteImage src={p.logo} alt={`${p.title} logo`} className="panel-center-logo" sizes="(max-width: 760px) 100px, 160px" />
               <span className="panel-title">{p.title}</span>
               <span className="panel-copy">
                 {p.copy.split('\n').map((line, i) => (
@@ -54,16 +54,16 @@ export default function HybridHero() {
                   </React.Fragment>
                 ))}
               </span>
-              <img src={p.img} alt={p.alt} />
-            </button>
+              <SiteImage src={p.img} alt={p.alt} sizes="(max-width: 760px) 90vw, 25vw" />
+            </Link>
           ))}
         </section>
 
         {/* The Old Hero */}
         <div className="home-page" onClick={(e) => { if (open) { e.stopPropagation(); setOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}>
 
-          <img src="/assets/flower_left.png" alt="" style={{ position: 'absolute', bottom: 0, left: 0, width: 'min(28vw, 350px)', height: 'auto', pointerEvents: 'none', zIndex: 10, opacity: 0.85, mixBlendMode: 'multiply' }} />
-          <img src="/assets/flower_right.png" alt="" style={{ position: 'absolute', bottom: 0, right: 0, width: 'min(28vw, 350px)', height: 'auto', pointerEvents: 'none', zIndex: 10, opacity: 0.85, mixBlendMode: 'multiply' }} />
+          <SiteImage src="/assets/flower_left.png" alt="" sizes="(max-width: 1250px) 28vw, 350px" style={{ position: 'absolute', bottom: 0, left: 0, width: 'min(28vw, 350px)', height: 'auto', pointerEvents: 'none', zIndex: 10, opacity: 0.85, mixBlendMode: 'multiply' }} />
+          <SiteImage src="/assets/flower_right.png" alt="" sizes="(max-width: 1250px) 28vw, 350px" style={{ position: 'absolute', bottom: 0, right: 0, width: 'min(28vw, 350px)', height: 'auto', pointerEvents: 'none', zIndex: 10, opacity: 0.85, mixBlendMode: 'multiply' }} />
 
           <section className="hero" aria-label="PRARAMBH introduction">
             <div className="marquee" aria-hidden="true">
@@ -77,7 +77,7 @@ export default function HybridHero() {
               </div>
             </div>
             <button className="hero-image" aria-label="Explore PRARAMBH properties" onClick={(e) => { e.stopPropagation(); window.scrollBy({ top: window.innerHeight * 0.5, behavior: 'smooth' }); }}>
-              <img src="/assets/homepage.jpeg" alt="PRARAMBH entrance with gardens and blue tiled roofs" />
+              <SiteImage src="/assets/homepage.jpeg" alt="PRARAMBH residential entrance and landscaped gardens in Vadodara" sizes="(max-width: 760px) 80vw, 50vw" preload />
             </button>
           </section>
 

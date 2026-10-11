@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import SiteImage from "./SiteImage";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +27,7 @@ export default function Header() {
         transition={{ duration: .9, delay: .45, ease: [.22, 1, .36, 1] }}
       >
         <Link className="brand" href="/" aria-label="PRARAMBH GROUP home" onClick={close}>
-          <img src="/assets/logo.png" alt="" />
+          <SiteImage src="/assets/logo.png" alt="" sizes="84px" loading="eager" />
         </Link>
         <nav aria-label="Main navigation">
           <Link href="/projects">Projects</Link><Link href="/about">About</Link><Link href="/testimonials">Stories</Link><Link href="/team">Team</Link><Link href="/gallery">Gallery</Link><Link href="/contact">Contact</Link>

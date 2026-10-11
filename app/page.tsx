@@ -1,16 +1,20 @@
 import Link from "next/link";
 import PageFrame from "@/components/PageFrame";
-import IntroOverlay from "@/components/IntroOverlay";
 import BlueprintReveal from "@/components/BlueprintReveal";
 import ParallaxImage from "@/components/ParallaxImage";
 import HybridHero from "@/components/HybridHero";
+import SiteImage from "@/components/SiteImage";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, websiteSchema } from "@/lib/seo";
 import { galleryImages } from "@/lib/site-data";
 import "./old-home.css"; // Ensure old CSS is loaded
+
+export const metadata = pageMetadata("/");
 
 export default function Home() {
   return (
     <PageFrame>
-      <IntroOverlay />
+      <JsonLd data={websiteSchema} />
       <main>
         
         {/* OLD PRARAMBH HERO & CARDS */}
@@ -19,8 +23,8 @@ export default function Home() {
         {/* REST OF PRARAMBH 2.0 (FROM DOWNWARDS) */}
         <section className="statement section-pad">
           <div className="statement-grid">
-            <h2>More than<br /><em>15 years</em><br />of experience.</h2>
-            <div className="statement-aside"><span className="lotus-mark">✦</span><p>More than a decade and a half of understanding land, people and possibility — translated into places with lasting value.</p></div>
+            <h1 className="home-search-heading">Real estate developers<br /><em>in Vadodara.</em></h1>
+            <div className="statement-aside"><span className="lotus-mark">✦</span><p>For more than 15 years, PRARAMBH GROUP has shaped homes and mixed-use spaces in Vadodara. Explore our 3 BHK duplex communities and commercial addresses around Waghodia.</p><Link className="text-link" href="/projects">Explore our projects <span>↗</span></Link></div>
           </div>
         </section>
 
@@ -45,7 +49,7 @@ export default function Home() {
 
         <section className="gallery-preview section-pad">
           <div className="gallery-head"><div><h2>Made to be<br /><em>experienced.</em></h2></div></div>
-          <div className="gallery-strip">{galleryImages.slice(0, 4).map((image, index) => <figure key={image.src} className={`gallery-tile tile-${index + 1}`}><img src={image.src} alt={`${image.project} — ${image.category}`} /><figcaption><span>{image.project}</span><b>{image.category}</b></figcaption></figure>)}</div>
+          <div className="gallery-strip">{galleryImages.slice(0, 4).map((image, index) => <figure key={image.src} className={`gallery-tile tile-${index + 1}`}><SiteImage src={image.src} alt={`${image.project} ${image.category.toLowerCase()} in Vadodara`} sizes="(max-width: 760px) 90vw, 35vw" /><figcaption><span>{image.project}</span><b>{image.category}</b></figcaption></figure>)}</div>
         </section>
 
         <section className="principles section-pad">

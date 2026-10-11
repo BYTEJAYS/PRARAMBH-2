@@ -54,16 +54,18 @@ export default function MotionSystem({ children }: { children: React.ReactNode }
 
     const interactive = Array.from(document.querySelectorAll<HTMLElement>(".project-row, .archive-project, .gallery-tile, .exhibit"));
     const cleanups = interactive.map((element) => {
+      let rect: DOMRect | null = null;
+      const onEnter = () => { rect = element.getBoundingClientRect(); };
       const onMove = (event: PointerEvent) => {
-        if (event.pointerType === "touch") return;
-        const rect = element.getBoundingClientRect();
+        if (event.pointerType === "touch" || !rect) return;
         element.style.setProperty("--motion-x", `${((event.clientX - rect.left) / rect.width - .5) * 10}px`);
         element.style.setProperty("--motion-y", `${((event.clientY - rect.top) / rect.height - .5) * 8}px`);
       };
-      const onLeave = () => { element.style.setProperty("--motion-x", "0px"); element.style.setProperty("--motion-y", "0px"); };
+      const onLeave = () => { rect = null; element.style.setProperty("--motion-x", "0px"); element.style.setProperty("--motion-y", "0px"); };
+      element.addEventListener("pointerenter", onEnter);
       element.addEventListener("pointermove", onMove);
       element.addEventListener("pointerleave", onLeave);
-      return () => { element.removeEventListener("pointermove", onMove); element.removeEventListener("pointerleave", onLeave); };
+      return () => { element.removeEventListener("pointerenter", onEnter); element.removeEventListener("pointermove", onMove); element.removeEventListener("pointerleave", onLeave); };
     });
     return () => { observer.disconnect(); cleanups.forEach((cleanup) => cleanup()); };
   }, [reduceMotion]);

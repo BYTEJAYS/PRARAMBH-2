@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
 export default function IntroOverlay() {
   const [visible, setVisible] = useState(true);
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setVisible(false); return; }
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { 
+      const immediate = window.setTimeout(() => setVisible(false), 0);
+      return () => window.clearTimeout(immediate); 
+    }
     const timer = window.setTimeout(() => setVisible(false), 1900);
     return () => window.clearTimeout(timer);
   }, []);

@@ -43,7 +43,7 @@ function DefaultCard({ testimonial }: { testimonial: Testimonial }) {
     <article className="rounded-3xl border border-border bg-background p-8 shadow-lg shadow-primary/10">
       <p>{testimonial.text}</p>
       <div className="mt-5 flex items-center gap-3">
-        <img className="h-10 w-10 rounded-full object-cover" src={testimonial.image} alt={testimonial.name} />
+        <img className="h-10 w-10 rounded-full object-cover" src={testimonial.image} alt={testimonial.name} loading="lazy" decoding="async" />
         <div>
           <p className="font-medium leading-5">{testimonial.name}</p>
           <p className="leading-5 opacity-60">{testimonial.role}</p>

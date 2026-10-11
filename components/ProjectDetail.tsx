@@ -8,7 +8,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
     <PageFrame>
       <main className="inner-page">
         <section className="project-hero">
-          <ParallaxImage className="project-hero-media" src={project.hero} alt={`${project.name} architectural render`} />
+          <ParallaxImage className="project-hero-media" src={project.hero} alt={`${project.name} architectural render`} priority={true} />
           <div className="project-hero-shade" />
           <div className="project-hero-copy"><p>{project.type}</p><h1>{project.name}</h1><span>{project.location}</span></div>
         </section>

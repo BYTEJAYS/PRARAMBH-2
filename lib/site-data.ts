@@ -68,6 +68,14 @@ export const projects: Project[] = [
   },
 ];
 
+export const completedProjects: Project[] = [
+  { slug: "asha-enclave", name: "Asha Enclave", type: "Residential", location: "Vadodara", description: "", hero: "/assets/asha-enclave.png", square: "", brochure: "", accent: "05", detail: "" },
+  { slug: "shree-hari-complex", name: "Shree Hari Complex", type: "Commercial & Residential", location: "Vadodara", description: "", hero: "/assets/shree-hari-complex.png", square: "", brochure: "", accent: "06", detail: "" },
+  { slug: "amadius-elite", name: "Amadius Elite", type: "Premium Apartments", location: "Vadodara", description: "", hero: "/assets/amadius-elite.png", square: "", brochure: "", accent: "07", detail: "" },
+  { slug: "swastik-residency", name: "Swastik Residency", type: "Residential", location: "Vadodara", description: "", hero: "/assets/swastik-residency.png", square: "", brochure: "", accent: "08", detail: "" },
+  { slug: "vinayak-residency", name: "Vinayak Residency", type: "Residential", location: "Vadodara", description: "", hero: "/assets/vinayak-residency.png", square: "", brochure: "", accent: "09", detail: "" },
+];
+
 export const galleryImages = [
   { src: "/assets/build3.png", project: "Prarambh 51", category: "Architecture" },
   { src: "/assets/buildsquare2.jpeg", project: "Prarambh Pride", category: "Arrival" },
@@ -77,4 +85,9 @@ export const galleryImages = [
   { src: "/assets/prarambh-pragati-amenities.jpg", project: "Prarambh Pragati", category: "Amenities" },
   { src: "/assets/buildsquare1.jpeg", project: "Prarambh 51", category: "Arrival" },
   { src: "/assets/buildsquare4.jpeg", project: "Prarambh Plaza", category: "Architecture" },
+  { src: "/assets/gallery1.png", project: "Prarambh Pragati", category: "Amenities" },
+  { src: "/assets/gallery2.png", project: "Prarambh Pragati", category: "Architecture" },
+  { src: "/assets/gallery3.jpg", project: "Prarambh Pragati", category: "Amenities" },
+  { src: "/assets/gallery4.png", project: "Prarambh Pragati", category: "Landscape" },
+  { src: "/assets/gallery5.jpg", project: "Prarambh Pragati", category: "Amenities" },
 ];

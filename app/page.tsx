@@ -25,7 +25,7 @@ export default function Home() {
         </section>
 
         <section className="story-split">
-          <div className="story-image"><ParallaxImage className="story-parallax" src="/assets/buildsquare1.jpeg" alt="Prarambh 51 entrance architecture" /></div>
+          <div className="story-image"><ParallaxImage className="story-parallax" src="/assets/temple_pool.jpg" alt="Prarambh temple architecture" /></div>
           <div className="story-copy"><h2>Every project begins with a simple belief.</h2><p>The spaces we build become part of people’s lives. That responsibility asks for care at every scale — from the first line on paper to the feeling of arriving home.</p></div>
         </section>
 
@@ -45,7 +45,7 @@ export default function Home() {
 
         <section className="gallery-preview section-pad">
           <div className="gallery-head"><div><h2>Made to be<br /><em>experienced.</em></h2></div></div>
-          <div className="gallery-strip">{galleryImages.slice(0, 4).map((image, index) => <figure key={image.src} className={`gallery-tile tile-${index + 1}`}><img src={image.src} alt={`${image.project} — ${image.category}`} /><figcaption><span>{image.project}</span><b>{image.category}</b></figcaption></figure>)}</div>
+          <div className="gallery-strip">{galleryImages.slice(0, 4).map((image, index) => <figure key={image.src} className={`gallery-tile tile-${index + 1}`}><img src={image.src} alt={`${image.project} — ${image.category}`} loading="lazy" decoding="async" /><figcaption><span>{image.project}</span><b>{image.category}</b></figcaption></figure>)}</div>
         </section>
 
         <section className="principles section-pad">

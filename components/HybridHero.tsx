@@ -44,7 +44,7 @@ export default function HybridHero() {
               data-project={p.id}
               onClick={() => { if (p.slug) router.push(`/projects/${p.slug}`); }}
             >
-              <img src={p.logo} alt="Project Logo" className="panel-center-logo" />
+              <img src={p.logo} alt="Project Logo" loading="lazy" decoding="async" className="panel-center-logo" />
               <span className="panel-title">{p.title}</span>
               <span className="panel-copy">
                 {p.copy.split('\n').map((line, i) => (
@@ -54,7 +54,7 @@ export default function HybridHero() {
                   </React.Fragment>
                 ))}
               </span>
-              <img src={p.img} alt={p.alt} />
+              <img src={p.img} alt={p.alt} loading="lazy" decoding="async" />
             </button>
           ))}
         </section>

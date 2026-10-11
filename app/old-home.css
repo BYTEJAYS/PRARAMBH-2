@@ -511,33 +511,44 @@ body.dialog-open{overflow:hidden}
 
 /* Increase Hero Image and Loader Stack sizes for a richer composition */
 .hero-image, .loader-stack {
-  width: 380px !important;
-  height: 380px !important;
+  width: 800px !important;
+  height: auto !important;
+  aspect-ratio: 1024 / 553 !important;
+  transition: width 0.8s cubic-bezier(0.76, 0, 0.24, 1), height 0.8s cubic-bezier(0.76, 0, 0.24, 1) !important;
 }
 .hero-image:hover {
-  width: 380px !important;
-  height: 380px !important;
+  width: 820px !important;
+  height: auto !important;
+  aspect-ratio: 1024 / 553 !important;
+}
+/* Prevent the image from zooming when the card expands */
+.hero-image:hover img {
+  transform: none !important;
 }
 
 @media (min-width: 1500px) {
   .hero-image, .loader-stack {
-    width: 480px !important;
-    height: 480px !important;
+    width: 1000px !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
   .hero-image:hover {
-    width: 480px !important;
-    height: 480px !important;
+    width: 1020px !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
 }
 
 @media (max-width: 760px) {
   .hero-image, .loader-stack {
-    width: 250px !important;
-    height: 250px !important;
+    width: 90vw !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
   .hero-image:hover {
-    width: 250px !important;
-    height: 250px !important;
+    width: 95vw !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
 }
 
@@ -1027,34 +1038,40 @@ body.dialog-open{overflow:hidden}
 
 /* Increase loader stack and hero image size */
 .hero-image, .loader-stack {
-  width: 440px !important;
-  height: 440px !important;
+  width: 800px !important;
+  height: auto !important;
+  aspect-ratio: 1024 / 553 !important;
 }
 
 .hero-image:hover {
-  width: 440px !important;
-  height: 440px !important;
+  width: 820px !important;
+  height: auto !important;
+  aspect-ratio: 1024 / 553 !important;
 }
 
 @media (min-width: 1400px) {
   .hero-image, .loader-stack {
-    width: 540px !important;
-    height: 540px !important;
+    width: 1000px !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
   .hero-image:hover {
-    width: 540px !important;
-    height: 540px !important;
+    width: 1020px !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
 }
 
 @media (max-width: 760px) {
   .hero-image, .loader-stack {
-    width: 280px !important;
-    height: 280px !important;
+    width: 90vw !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
   .hero-image:hover {
-    width: 280px !important;
-    height: 280px !important;
+    width: 95vw !important;
+    height: auto !important;
+    aspect-ratio: 1024 / 553 !important;
   }
 }
 

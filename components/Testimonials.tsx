@@ -102,7 +102,7 @@ function renderStoryCard(testimonial: Testimonial, index: number) {
       <span className="resident-story-quote" aria-hidden="true">“</span>
       <p>{testimonial.text}</p>
       <footer>
-        <img src={testimonial.image} alt={testimonial.name} />
+        <img src={testimonial.image} alt={testimonial.name} loading="lazy" decoding="async" />
         <span><b>{testimonial.name}</b><small>{testimonial.role}</small></span>
       </footer>
     </article>

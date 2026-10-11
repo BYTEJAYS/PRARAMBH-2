@@ -1,18 +1,68 @@
 import PageFrame from "@/components/PageFrame";
+import { TiltCard } from "@/components/ui/tilt-card";
+
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+);
+
+const FacebookIcon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+);
+
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+  </svg>
+);
+
+const MapPinIcon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
 
 export default function ContactPage() {
   return <PageFrame><main className="inner-page contact-page">
     <section className="contact-intro"><h1>Let’s talk about<br /><em>your next space.</em></h1><p>Whether you are exploring a home or a commercial address, begin with a conversation.</p></section>
     <section className="contact-grid section-pad">
-      <form className="contact-form" action="mailto:inframr02@gmail.com" method="post" encType="text/plain">
+      <form className="contact-form" action="mailto:spacesinfra24@gmail.com" method="post" encType="text/plain">
         <label><span>01</span>Name<input name="name" autoComplete="name" placeholder="Your name" required /></label>
         <label><span>02</span>Phone<input name="phone" type="tel" autoComplete="tel" placeholder="Your phone number" required /></label>
         <label><span>03</span>Email<input name="email" type="email" autoComplete="email" placeholder="Your email address" /></label>
-        <label><span>04</span>Interested project<select name="project" defaultValue=""><option value="" disabled>Select a project</option><option>Prarambh 51</option><option>Prarambh Pride</option><option>Prarambh Plaza</option></select></label>
-        <label><span>05</span>Message<textarea name="message" placeholder="Tell us what you are looking for" rows={4} /></label>
+        <label><span>04</span>Message<textarea name="message" placeholder="Tell us what you are looking for" rows={4} /></label>
         <button className="solid-button" type="submit">Start a conversation <b>↗</b></button>
       </form>
-      <aside className="contact-details"><div><p>Call</p><a href="tel:+919978948105">+91 99789 48105</a><a href="tel:+919512061100">+91 95120 61100</a></div><div><p>Email</p><a href="mailto:inframr02@gmail.com">inframr02@gmail.com</a></div><div><p>Visit</p><span>Waghodia Road<br />Vadodara, Gujarat</span></div><div className="contact-monogram">P<span>G</span></div></aside>
+      <aside className="contact-details">
+        <div><p>Call</p><a href="tel:+918156069000">+91 81560 69000</a></div>
+        <div><p>Email</p><a href="mailto:spacesinfra24@gmail.com">spacesinfra24@gmail.com</a></div>
+        <div>
+          <p>Visit</p>
+          <a href="https://maps.app.goo.gl/XnmvJmd7Pp3KtKFx8" target="_blank" rel="noopener noreferrer" className="group !flex items-center gap-6 w-max">
+            <span>Prarambh Group,<br />Alva Road,<br />Nr. To Vadpadraka Hotel & Resort,<br />Dattpura, Waghodia Road,<br />Vadodara 391760</span>
+            <TiltCard scale={1.1} effect="gravitate" className="w-14 h-14 rounded-2xl bg-[#c9aa70] flex items-center justify-center shadow-lg cursor-pointer border border-white/20 shrink-0 group-hover:bg-[#d7c29b] transition-colors">
+              <MapPinIcon className="w-7 h-7 text-[#092a26] relative z-20 pointer-events-none" />
+            </TiltCard>
+          </a>
+        </div>
+        <div className="!flex flex-row gap-6 mt-12 pt-8 border-t border-[var(--gold)]/20">
+          <a href="https://www.instagram.com/prarambh_group271?stkn=bTdhZXh1N2htYWZu&utm_source=qr" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
+            <TiltCard scale={1.1} effect="gravitate" className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center shadow-lg cursor-pointer border border-white/20">
+              <InstagramIcon className="w-8 h-8 text-white relative z-20 pointer-events-none" />
+            </TiltCard>
+          </a>
+          <a href="https://www.facebook.com/prarambhgroupvadodara?mibextid=wwXIfr&rdid=smbNQ8fwHZUXttzO&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14jFMycjgjJ%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
+            <TiltCard scale={1.1} effect="gravitate" className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg cursor-pointer border border-white/20">
+              <FacebookIcon className="w-8 h-8 text-white fill-none stroke-current relative z-20 pointer-events-none" />
+            </TiltCard>
+          </a>
+          <a href="https://wa.link/y9gcn9" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
+            <TiltCard scale={1.1} effect="gravitate" className="w-16 h-16 rounded-2xl bg-[#25D366] flex items-center justify-center shadow-lg cursor-pointer border border-white/20">
+              <WhatsAppIcon className="w-9 h-9 text-white relative z-20 pointer-events-none" />
+            </TiltCard>
+          </a>
+        </div>
+      </aside>
     </section>
   </main></PageFrame>;
 }

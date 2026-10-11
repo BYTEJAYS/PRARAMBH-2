@@ -108,6 +108,17 @@ node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1
 
 Replace the filename with the pending migration and `DB` with your D1 binding name if different. Use `.wrangler/state`, not `.wrangler/state/v3`; Wrangler adds the versioned directories. Do not replay migrations already applied locally. This updates only the preview database; publishing applies production migrations separately.
 
+## Vercel deployment
+
+Deploy the repository root with the Next.js framework preset. The tracked
+`vercel.json` selects `npm run build:vercel` (`next build`) and the `.next`
+output directory, overriding the corresponding dashboard settings.
+
+The default `npm run build` creates the Vinext/Cloudflare output in `dist`
+for Sites hosting. That output does not contain the Next.js route manifest
+Vercel requires. Use `npm run build:vercel` to verify a Vercel build locally,
+then redeploy the latest Git commit in Vercel.
+
 ## Diagnostic Commands
 
 - `npm run install:ci`: perform the one locked dependency install

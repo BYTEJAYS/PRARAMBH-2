@@ -2,6 +2,7 @@ import PageFrame from "@/components/PageFrame";
 import { TiltCard } from "@/components/ui/tilt-card";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { pageMetadata } from "@/lib/seo";
+import SiteImage from "@/components/SiteImage";
 
 export const metadata = pageMetadata("/team");
 
@@ -13,7 +14,7 @@ export default function TeamPage() {
         <div className="flex justify-center">
           <TiltCard className="w-full max-w-[260px] aspect-[3/4] border border-[var(--gold)]/30 bg-[var(--deep)]/5 rounded-xl flex flex-col overflow-hidden" effect="gravitate" tiltLimit={10} scale={1.03}>
             <div className="w-full h-[75%] bg-white pt-2 flex items-end justify-center overflow-hidden relative z-20">
-              <img src="/assets/vivek-singh.jpg" alt="Vivek Singh" loading="lazy" decoding="async" className="w-full h-full object-cover object-top pointer-events-none" />
+              <SiteImage src="/assets/vivek-singh.jpg" alt="Vivek Singh" fill sizes="260px" className="object-cover object-top pointer-events-none" />
             </div>
             <div className="w-full h-[25%] flex flex-col items-center justify-center p-3 text-center bg-white/40 backdrop-blur-sm relative z-20 pointer-events-none">
               <h3 className="font-serif text-[var(--ink)] text-lg m-0 leading-tight">Vivek Singh</h3>
@@ -30,7 +31,7 @@ export default function TeamPage() {
           ].map((person, i) => (
             <TiltCard key={`mid-${i}`} className="w-full aspect-[3/4] border border-[var(--gold)]/30 bg-[var(--deep)]/5 rounded-xl flex flex-col overflow-hidden" effect="gravitate" tiltLimit={10} scale={1.03}>
               <div className="w-full h-[75%] bg-white flex items-start justify-center overflow-hidden relative z-20">
-                <img src={person.image} alt={person.name} loading="lazy" decoding="async" className="w-full h-full object-cover pointer-events-none" style={{ objectPosition: person.pos }} />
+                <SiteImage src={person.image} alt={person.name} fill sizes="(max-width: 639px) 44vw, (max-width: 1100px) 22vw, 260px" className="object-cover pointer-events-none" style={{ objectPosition: person.pos }} />
               </div>
               <div className="w-full h-[25%] flex flex-col items-center justify-center p-2 sm:p-3 text-center bg-white/40 backdrop-blur-sm relative z-20 pointer-events-none">
                 <h3 className="font-serif text-[var(--ink)] text-sm sm:text-base m-0 leading-tight">{person.name}</h3>
@@ -48,7 +49,7 @@ export default function TeamPage() {
           ].map((person, i) => (
             <TiltCard key={`bot-${i}`} className="w-full aspect-[3/4] border border-[var(--gold)]/30 bg-[var(--deep)]/5 rounded-xl flex flex-col overflow-hidden" effect="gravitate" tiltLimit={10} scale={1.03}>
               <div className="w-full h-[75%] bg-white flex items-start justify-center overflow-hidden relative z-20">
-                <img src={person.image} alt={person.name} loading="lazy" decoding="async" className="w-full h-full object-cover pointer-events-none" style={{ objectPosition: person.pos }} />
+                <SiteImage src={person.image} alt={person.name} fill sizes="(max-width: 639px) 44vw, (max-width: 1100px) 22vw, 260px" className="object-cover pointer-events-none" style={{ objectPosition: person.pos }} />
               </div>
               <div className="w-full h-[25%] flex flex-col items-center justify-center p-2 sm:p-3 text-center bg-white/40 backdrop-blur-sm relative z-20 pointer-events-none">
                 <h3 className="font-serif text-[var(--ink)] text-sm sm:text-base m-0 leading-tight">{person.name}</h3>

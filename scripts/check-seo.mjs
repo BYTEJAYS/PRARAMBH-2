@@ -62,15 +62,14 @@ for (const path of paths) {
     assert.equal(new URL(breadcrumb.itemListElement.at(-1).item).href, canonicalUrl, `${path}: breadcrumb destination mismatch`);
   }
   const noindex = meta.some((item) => item.name === "robots" && item.content.includes("noindex"));
-  if (path === "/team") assert.ok(noindex, "Team placeholders must stay out of search results");
-  else assert.ok(!noindex, `${path}: published page unexpectedly prevents indexing`);
+  assert.ok(!noindex, `${path}: published page unexpectedly prevents indexing`);
   if (!noindex) indexableUrls.add(canonicalUrl);
 }
 
 const sitemap = await readFile(join(buildDirectory, "sitemap.xml.body"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(([, url]) => url);
 assert.equal(sitemapUrls.length, new Set(sitemapUrls).size, "Duplicate sitemap URLs");
-assert.deepEqual(new Set(sitemapUrls), indexableUrls, "Sitemap must contain every indexable page and exclude placeholders");
+assert.deepEqual(new Set(sitemapUrls), indexableUrls, "Sitemap must contain every indexable page");
 const robots = await readFile(join(buildDirectory, "robots.txt.body"), "utf8");
 assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt sitemap mismatch");
 const notFound = await readFile(join(buildDirectory, "_not-found.html"), "utf8");

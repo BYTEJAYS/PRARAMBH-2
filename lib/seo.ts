@@ -28,7 +28,6 @@ export const seoPages: Record<string, PageDetails> = {
   "/team": {
     title: "Our Team | PRARAMBH GROUP, Vadodara",
     description: "Meet PRARAMBH GROUP’s founder, partners and team behind our real estate developments, engineering and client relationships in Vadodara.",
-    index: false,
   },
   "/testimonials": {
     title: "Resident Stories | PRARAMBH GROUP, Vadodara",
@@ -84,11 +83,13 @@ export const organizationSchema = {
   description: seoPages["/"].description,
   telephone: business.telephone,
   email: business.email,
+  sameAs: [business.instagramUrl, business.facebookUrl],
   address: {
     "@type": "PostalAddress",
     streetAddress: business.streetAddress,
     addressLocality: business.city,
     addressRegion: business.region,
+    postalCode: business.postalCode,
     addressCountry: business.country,
   },
   areaServed: { "@type": "City", name: business.city },

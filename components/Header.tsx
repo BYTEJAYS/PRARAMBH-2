@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import SiteImage from "./SiteImage";
+import { business } from "@/lib/site-config";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +53,7 @@ export default function Header() {
               </motion.div>
             ))}
           </nav>
-          <motion.small initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .5 }}>Vadodara, Gujarat · +91 99789 48105</motion.small>
+          <motion.small initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .5 }}>{business.city}, {business.region} · {business.displayTelephone}</motion.small>
         </motion.div>}
       </AnimatePresence>
     </>

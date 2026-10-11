@@ -131,9 +131,9 @@ to preview a completed Next.js production build.
 The production domain is configured in `lib/site-config.ts`. Page titles,
 descriptions and indexing decisions are in `lib/seo.ts`; project metadata
 uses the same verified project information as the visible project pages.
-The sitemap contains indexable pages only. The Team page stays `noindex`
-until actual profiles replace its placeholders; enable it in `seoPages`
-when that content is ready.
+The sitemap contains indexable pages only, including the completed Team page.
+Contact details and official profile links are shared through `business` in
+`lib/site-config.ts` so navigation, contact links and business data stay consistent.
 
 Run `npm run build:vercel` followed by `npm run check:seo` to validate the
 actual generated HTML, canonical links, breadcrumbs, business data, sitemap

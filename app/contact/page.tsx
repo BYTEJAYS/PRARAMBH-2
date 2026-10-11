@@ -1,3 +1,4 @@
+import { business } from "@/lib/site-config";
 import PageFrame from "@/components/PageFrame";
 import { TiltCard } from "@/components/ui/tilt-card";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -30,7 +31,7 @@ export default function ContactPage() {
   return <PageFrame><main className="inner-page contact-page">
     <section className="contact-intro"><Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} /><h1>Let’s talk about<br /><em>your next space.</em></h1><p>Enquire about PRARAMBH GROUP’s homes and mixed-use properties in Waghodia, Vadodara, or arrange a project site visit.</p></section>
     <section className="contact-grid section-pad">
-      <form className="contact-form" action="mailto:spacesinfra24@gmail.com" method="post" encType="text/plain">
+      <form className="contact-form" action={`mailto:${business.email}`} method="post" encType="text/plain">
         <label><span>01</span>Name<input name="name" autoComplete="name" placeholder="Your name" required /></label>
         <label><span>02</span>Phone<input name="phone" type="tel" autoComplete="tel" placeholder="Your phone number" required /></label>
         <label><span>03</span>Email<input name="email" type="email" autoComplete="email" placeholder="Your email address" /></label>
@@ -38,29 +39,29 @@ export default function ContactPage() {
         <button className="solid-button" type="submit">Start a conversation <b>↗</b></button>
       </form>
       <aside className="contact-details">
-        <div><p>Call</p><a href="tel:+918156069000">+91 81560 69000</a></div>
-        <div><p>Email</p><a href="mailto:spacesinfra24@gmail.com">spacesinfra24@gmail.com</a></div>
+        <div><p>Call</p><a href={`tel:${business.telephone}`}>{business.displayTelephone}</a></div>
+        <div><p>Email</p><a href={`mailto:${business.email}`}>{business.email}</a></div>
         <div>
           <p>Visit</p>
-          <a href="https://maps.app.goo.gl/XnmvJmd7Pp3KtKFx8" target="_blank" rel="noopener noreferrer" className="group !flex items-center gap-6 w-max">
-            <span>Prarambh Group,<br />Alva Road,<br />Nr. To Vadpadraka Hotel & Resort,<br />Dattpura, Waghodia Road,<br />Vadodara 391760</span>
+          <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer" className="group !flex items-center gap-4 w-full max-w-full">
+            <span className="min-w-0">Prarambh Group,<br />Alva Road,<br />Nr. To Vadpadraka Hotel & Resort,<br />Dattpura, Waghodia Road,<br />Vadodara 391760</span>
             <TiltCard scale={1.1} effect="gravitate" className="w-14 h-14 rounded-2xl bg-[#c9aa70] flex items-center justify-center shadow-lg cursor-pointer border border-white/20 shrink-0 group-hover:bg-[#d7c29b] transition-colors">
               <MapPinIcon className="w-7 h-7 text-[#092a26] relative z-20 pointer-events-none" />
             </TiltCard>
           </a>
         </div>
         <div className="!flex flex-row gap-6 mt-12 pt-8 border-t border-[var(--gold)]/20">
-          <a href="https://www.instagram.com/prarambh_group271?stkn=bTdhZXh1N2htYWZu&utm_source=qr" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
+          <a href={business.instagramUrl} aria-label="PRARAMBH GROUP on Instagram" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
             <TiltCard scale={1.1} effect="gravitate" className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center shadow-lg cursor-pointer border border-white/20">
               <InstagramIcon className="w-8 h-8 text-white relative z-20 pointer-events-none" />
             </TiltCard>
           </a>
-          <a href="https://www.facebook.com/prarambhgroupvadodara?mibextid=wwXIfr&rdid=smbNQ8fwHZUXttzO&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14jFMycjgjJ%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
+          <a href={business.facebookUrl} aria-label="PRARAMBH GROUP on Facebook" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
             <TiltCard scale={1.1} effect="gravitate" className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg cursor-pointer border border-white/20">
               <FacebookIcon className="w-8 h-8 text-white fill-none stroke-current relative z-20 pointer-events-none" />
             </TiltCard>
           </a>
-          <a href="https://wa.link/y9gcn9" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
+          <a href={business.whatsappUrl} aria-label="PRARAMBH GROUP on WhatsApp" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginBottom: 0 }}>
             <TiltCard scale={1.1} effect="gravitate" className="w-16 h-16 rounded-2xl bg-[#25D366] flex items-center justify-center shadow-lg cursor-pointer border border-white/20">
               <WhatsAppIcon className="w-9 h-9 text-white relative z-20 pointer-events-none" />
             </TiltCard>

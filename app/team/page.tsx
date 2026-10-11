@@ -1,9 +1,13 @@
 import PageFrame from "@/components/PageFrame";
 import { TiltCard } from "@/components/ui/tilt-card";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata("/team");
 
 export default function TeamPage() {
   return <PageFrame><main className="inner-page">
-    <section className="inner-hero team-hero"><h1>Human judgment.<br /><em>Shared purpose.</em></h1><span>Real team profiles will be added when approved.</span></section>
+    <section className="inner-hero team-hero"><Breadcrumbs items={[{ name: "Team", href: "/team" }]} /><h1>Human judgment.<br /><em>Shared purpose.</em></h1><span>Meet the people behind PRARAMBH GROUP.</span></section>
     <section className="section-pad">
       <div className="flex flex-col gap-8 max-w-5xl mx-auto px-4">
         <div className="flex justify-center">

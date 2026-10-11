@@ -2,15 +2,19 @@ import Link from "next/link";
 import PageFrame from "./PageFrame";
 import type { Project } from "@/lib/site-data";
 import ParallaxImage from "./ParallaxImage";
+import Breadcrumbs from "./Breadcrumbs";
+import JsonLd from "./JsonLd";
+import { projectSchema } from "@/lib/seo";
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <PageFrame>
+      <JsonLd data={projectSchema(project)} />
       <main className="inner-page">
         <section className="project-hero">
-          <ParallaxImage className="project-hero-media" src={project.hero} alt={`${project.name} architectural render`} priority={true} />
+          <ParallaxImage className="project-hero-media" src={project.hero} alt={`${project.name} ${project.type.toLowerCase()} in Vadodara`} preload />
           <div className="project-hero-shade" />
-          <div className="project-hero-copy"><p>{project.type}</p><h1>{project.name}</h1><span>{project.location}</span></div>
+          <div className="project-hero-copy"><Breadcrumbs items={[{ name: "Projects", href: "/projects" }, { name: project.name, href: `/projects/${project.slug}` }]} /><p>{project.type}</p><h1>{project.name}</h1><span>{project.location}</span></div>
         </section>
         <section className="project-intro section-pad">
           <p className="section-index">Project {project.accent}</p>

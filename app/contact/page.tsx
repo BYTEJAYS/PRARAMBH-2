@@ -1,5 +1,9 @@
 import PageFrame from "@/components/PageFrame";
 import { TiltCard } from "@/components/ui/tilt-card";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata("/contact");
 
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -24,7 +28,7 @@ const MapPinIcon = ({ className }: { className?: string }) => (
 
 export default function ContactPage() {
   return <PageFrame><main className="inner-page contact-page">
-    <section className="contact-intro"><h1>Let’s talk about<br /><em>your next space.</em></h1><p>Whether you are exploring a home or a commercial address, begin with a conversation.</p></section>
+    <section className="contact-intro"><Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} /><h1>Let’s talk about<br /><em>your next space.</em></h1><p>Enquire about PRARAMBH GROUP’s homes and mixed-use properties in Waghodia, Vadodara, or arrange a project site visit.</p></section>
     <section className="contact-grid section-pad">
       <form className="contact-form" action="mailto:spacesinfra24@gmail.com" method="post" encType="text/plain">
         <label><span>01</span>Name<input name="name" autoComplete="name" placeholder="Your name" required /></label>

@@ -1,6 +1,7 @@
 "use client";
 
 import { TestimonialsColumn, type Testimonial } from "@/components/ui/testimonials-columns-1";
+import Breadcrumbs from "./Breadcrumbs";
 
 const testimonials: Testimonial[] = [
   {
@@ -81,6 +82,7 @@ const columns = [
 export default function Testimonials() {
   return (
     <section className="testimonial-wall" aria-label="Resident testimonials">
+      <div className="stories-heading"><Breadcrumbs items={[{ name: "Resident stories", href: "/testimonials" }]} /><h1>Resident stories.</h1><p>Experiences of homes, planning and everyday life with PRARAMBH GROUP in Vadodara.</p></div>
       <div className="testimonial-columns">
         {columns.map((column, index) => (
           <TestimonialsColumn
@@ -102,7 +104,7 @@ function renderStoryCard(testimonial: Testimonial, index: number) {
       <span className="resident-story-quote" aria-hidden="true">“</span>
       <p>{testimonial.text}</p>
       <footer>
-        <img src={testimonial.image} alt={testimonial.name} loading="lazy" decoding="async" />
+        <img src={testimonial.image} alt="" width={34} height={34} loading="lazy" decoding="async" />
         <span><b>{testimonial.name}</b><small>{testimonial.role}</small></span>
       </footer>
     </article>

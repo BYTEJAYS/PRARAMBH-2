@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import SiteImage from "./SiteImage";
 
 export default function BlueprintReveal() {
   const ref = useRef<HTMLElement>(null);
@@ -20,8 +21,8 @@ export default function BlueprintReveal() {
     <section className="blueprint" ref={ref}>
       <div className="blueprint-sticky">
         <div className="blueprint-media">
-          <img className="blueprint-base" src="/assets/build2.png" alt="Architectural blueprint transforming into Prarambh Pride" />
-          <div className="blueprint-final" style={{ clipPath: `inset(0 ${100 - progress * 100}% 0 0)` }}><img src="/assets/build2.png" alt="" /></div>
+          <SiteImage className="blueprint-base" src="/assets/build2.png" alt="Prarambh Pride duplex architecture in Vadodara" sizes="(max-width: 760px) 100vw, 60vw" />
+          <div className="blueprint-final" style={{ clipPath: `inset(0 ${100 - progress * 100}% 0 0)` }}><SiteImage src="/assets/build2.png" alt="" sizes="(max-width: 760px) 100vw, 60vw" /></div>
           <div className="blueprint-grid" />
         </div>
         <div className="blueprint-copy">

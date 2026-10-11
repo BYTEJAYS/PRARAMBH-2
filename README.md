@@ -108,6 +108,39 @@ node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1
 
 Replace the filename with the pending migration and `DB` with your D1 binding name if different. Use `.wrangler/state`, not `.wrangler/state/v3`; Wrangler adds the versioned directories. Do not replay migrations already applied locally. This updates only the preview database; publishing applies production migrations separately.
 
+## Vercel deployment
+
+Deploy the repository root with the Next.js framework preset. The tracked
+`vercel.json` selects `npm run build:vercel` (`next build --webpack`) and the `.next`
+output directory, overriding the corresponding dashboard settings.
+
+The default `npm run build` creates the Vinext/Cloudflare output in `dist`
+for Sites hosting. That output does not contain the Next.js route manifest
+Vercel requires. Use `npm run build:vercel` to verify a Vercel build locally,
+then redeploy the latest Git commit in Vercel.
+
+The Vercel build uses Webpack to avoid reusing an outdated Turbopack stylesheet
+from a restored build cache. The SEO check also verifies that each generated page
+includes the current image, heading and breadcrumb styles.
+
+Use `npm run dev:vercel` for Next.js development, or `npm run start:vercel`
+to preview a completed Next.js production build.
+
+## Search metadata
+
+The production domain is configured in `lib/site-config.ts`. Page titles,
+descriptions and indexing decisions are in `lib/seo.ts`; project metadata
+uses the same verified project information as the visible project pages.
+The sitemap contains indexable pages only. The Team page stays `noindex`
+until actual profiles replace its placeholders; enable it in `seoPages`
+when that content is ready.
+
+Run `npm run build:vercel` followed by `npm run check:seo` to validate the
+actual generated HTML, canonical links, breadcrumbs, business data, sitemap
+and social sharing image. Update the checks when the production domain or
+page routing or indexing decisions change. Use genuine business and project details when adding
+an office address, official social profiles or RERA identifiers.
+
 ## Diagnostic Commands
 
 - `npm run install:ci`: perform the one locked dependency install

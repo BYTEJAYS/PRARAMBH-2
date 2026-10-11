@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { galleryImages } from "@/lib/site-data";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import SiteImage from "./SiteImage";
 
 export default function GalleryExperience() {
   const [active, setActive] = useState<number | null>(null);
@@ -20,10 +21,10 @@ export default function GalleryExperience() {
   const image = active === null ? null : galleryImages[active];
   return <>
     <div className="gallery-filters" role="group" aria-label="Gallery filters">{filters.map(item => <button type="button" className={filter === item ? "active" : ""} onClick={() => setFilter(item)} key={item}>{item}</button>)}</div>
-    <div className="gallery-exhibition">{visible.map(({ item, index }, order) => <button type="button" onClick={() => setActive(index)} className={`exhibit exhibit-${order % 4}`} key={item.src}><img src={item.src} alt={`${item.project} — ${item.category}`} loading="lazy" decoding="async" /><span><b>{item.project}</b><small>{item.category} · View</small></span></button>)}</div>
+    <div className="gallery-exhibition">{visible.map(({ item, index }, order) => <button type="button" onClick={() => setActive(index)} className={`exhibit exhibit-${order % 4}`} key={item.src}><SiteImage src={item.src} alt={`${item.project} ${item.category.toLowerCase()} in Vadodara`} sizes="(max-width: 760px) 90vw, 50vw" /><span><b>{item.project}</b><small>{item.category} · View</small></span></button>)}</div>
     <Dialog open={active !== null} onOpenChange={(open) => !open && setActive(null)}>
       <DialogContent className="lightbox" showCloseButton>
-        {image && <><DialogTitle className="sr-only">{image.project}</DialogTitle><DialogDescription className="sr-only">{image.category}</DialogDescription><img src={image.src} alt={`${image.project} — ${image.category}`} /><footer><div><b>{image.project}</b><span>{image.category}</span></div><p>{String((active ?? 0) + 1).padStart(2, "0")} / {String(galleryImages.length).padStart(2, "0")}</p></footer></>}
+        {image && <><DialogTitle className="sr-only">{image.project}</DialogTitle><DialogDescription className="sr-only">{image.category}</DialogDescription><SiteImage src={image.src} alt={`${image.project} — ${image.category}`} sizes="90vw" loading="eager" /><footer><div><b>{image.project}</b><span>{image.category}</span></div><p>{String((active ?? 0) + 1).padStart(2, "0") } / {String(galleryImages.length).padStart(2, "0")}</p></footer></>}
       </DialogContent>
     </Dialog>
   </>;

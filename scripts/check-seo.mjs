@@ -34,6 +34,12 @@ for (const path of paths) {
   titles.add(title);
   const meta = tags(html, "meta");
   const links = tags(html, "link");
+  const stylesheets = links.filter((item) => item.rel === "stylesheet");
+  assert.ok(stylesheets.length, `${path}: missing stylesheet`);
+  const css = (await Promise.all(stylesheets.map((item) => readFile(join(".next", new URL(item.href, origin).pathname.replace(/^\/_next\//, "")), "utf8")))).join("\n");
+  for (const selector of [".parallax-media", ".home-search-heading", ".breadcrumbs"]) {
+    assert.ok(css.includes(selector), `${path}: stale stylesheet missing ${selector}`);
+  }
   assert.ok(meta.some((item) => item.name === "description" && item.content.length >= 70), `${path}: missing meaningful description`);
   const canonical = links.filter((item) => item.rel === "canonical");
   assert.equal(canonical.length, 1, `${path}: expected one canonical URL`);

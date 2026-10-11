@@ -111,13 +111,17 @@ Replace the filename with the pending migration and `DB` with your D1 binding na
 ## Vercel deployment
 
 Deploy the repository root with the Next.js framework preset. The tracked
-`vercel.json` selects `npm run build:vercel` (`next build`) and the `.next`
+`vercel.json` selects `npm run build:vercel` (`next build --webpack`) and the `.next`
 output directory, overriding the corresponding dashboard settings.
 
 The default `npm run build` creates the Vinext/Cloudflare output in `dist`
 for Sites hosting. That output does not contain the Next.js route manifest
 Vercel requires. Use `npm run build:vercel` to verify a Vercel build locally,
 then redeploy the latest Git commit in Vercel.
+
+The Vercel build uses Webpack to avoid reusing an outdated Turbopack stylesheet
+from a restored build cache. The SEO check also verifies that each generated page
+includes the current image, heading and breadcrumb styles.
 
 Use `npm run dev:vercel` for Next.js development, or `npm run start:vercel`
 to preview a completed Next.js production build.
